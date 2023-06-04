@@ -1,6 +1,4 @@
-package task1;
-
-import java.util.Scanner;
+package tasks;
 
 public class Task6 {
 //6. Напишите реализацию метода summ(int a, int b), вычисляющий a*b,
