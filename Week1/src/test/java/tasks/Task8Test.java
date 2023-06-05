@@ -14,6 +14,11 @@ public class Task8Test extends TestCase {
         int actual = task8.countLeapYears(4);
         assertEquals(1, actual);
     }
+
+    public void testCountLeapYearsWithSixteen() {
+        int actual = task8.countLeapYears(16);
+        assertEquals(4, actual);
+    }
     public void testCountLeapYearsWithOneHundred() {
         int actual = task8.countLeapYears(100);
         assertEquals(24, actual);
@@ -29,5 +34,6 @@ public class Task8Test extends TestCase {
     public void testCountLeapYearsWithEightHundred() {
         int actual = task8.countLeapYears(800);
         assertEquals(194, actual);
+
     }
 }
