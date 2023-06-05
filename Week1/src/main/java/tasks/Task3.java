@@ -1,6 +1,5 @@
 package tasks;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -21,7 +20,7 @@ public class Task3 {
         for (int i = 0; i < arraySize; i++) {
             array[i] =  random.nextInt(900) + 100;
         }
-        System.out.println(Arrays.toString(array));
+
         for (int j = 0; j < arraySize; j++) {
             if( j < arraySize/2) {
                 System.out.print( array[j] + " ");

@@ -27,7 +27,7 @@ public class Task4 {
                 transposedMatrix[j][i] =  array[i][j];
             }
         }
-        System.out.println("transposedMatrix:");
+        System.out.println("Transposed matrix:");
         for (int i = 0; i < arraySize; i++) {
             for (int j = 0; j < arraySize; j++) {
                 System.out.print( transposedMatrix[i][j] + "  ");
