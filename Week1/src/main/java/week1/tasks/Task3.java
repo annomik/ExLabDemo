@@ -31,6 +31,6 @@ public class Task3 {
                 System.out.print(array[j] + " ");
             }
         }
-
+        scanner.close();
     }
 }

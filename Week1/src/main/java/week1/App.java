@@ -25,6 +25,7 @@ public class App {
         String secondNumber = scanner.nextLine();
         Task10 task10 = new Task10();
         System.out.println( task10.addBinaryNumbers(firstNumber,secondNumber));
+        scanner.close();
     }
 
 }

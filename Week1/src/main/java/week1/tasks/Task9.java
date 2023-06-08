@@ -17,5 +17,6 @@ public class Task9 {
                 System.out.println(number + " x " + i + " = " + number * i);
             }
         }
+        scanner.close();
     }
 }
