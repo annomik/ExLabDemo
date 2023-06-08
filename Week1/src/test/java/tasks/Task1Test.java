@@ -1,6 +1,7 @@
 package tasks;
 
 import org.junit.Test;
+import week1.tasks.Task1;
 
 import static org.junit.Assert.*;
 

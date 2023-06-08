@@ -1,6 +1,7 @@
 package tasks;
 
 import junit.framework.TestCase;
+import week1.tasks.Task10;
 
 public class Task10Test extends TestCase {
     Task10 task10 = new Task10();

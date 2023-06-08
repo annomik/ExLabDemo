@@ -1,4 +1,4 @@
-package tasks;
+package week1.tasks;
 
 public class Task2 {
  //2.	Напишите метод, который принимает в качестве параметра положительное целое число

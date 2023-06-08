@@ -1,4 +1,4 @@
-package tasks;
+package week1.tasks;
 
 public class Task8 {
 //8. В Григорианском календаре год является високосным в двух случаях:

@@ -1,4 +1,4 @@
-package tasks;
+package week1.tasks;
 
 public class Task7 {
 //Дан двухмерный массив размерностью 4 на 4, необходимо нарисовать четыре треугольникa

@@ -1,6 +1,8 @@
-import tasks.Task1;
-import tasks.Task10;
-import tasks.Task6;
+package week1;
+
+import week1.tasks.Task1;
+import week1.tasks.Task10;
+import week1.tasks.Task6;
 
 import java.util.Scanner;
 

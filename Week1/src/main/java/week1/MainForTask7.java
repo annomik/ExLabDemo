@@ -1,4 +1,6 @@
-import tasks.Task7;
+package week1;
+
+import week1.tasks.Task7;
 
 public class MainForTask7
 {

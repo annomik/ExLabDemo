@@ -1,4 +1,4 @@
-package tasks;
+package week1.tasks;
 
 public class Task1 {
  //1.	Напишите метод, который принимает в качестве параметра целое число и возвращает значение true,

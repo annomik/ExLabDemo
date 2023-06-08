@@ -1,4 +1,4 @@
-package tasks;
+package week1.tasks;
 
 public class Task6 {
 //6. Напишите реализацию метода summ(int a, int b), вычисляющий a*b,

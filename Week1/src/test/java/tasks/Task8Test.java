@@ -1,6 +1,7 @@
 package tasks;
 
 import junit.framework.TestCase;
+import week1.tasks.Task8;
 
 public class Task8Test extends TestCase {
 
