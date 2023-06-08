@@ -1,4 +1,4 @@
-package tasks;
+package week1.tasks;
 
 public class Task10 {
 //10.	Напишите программу на Java, чтобы добавить два двоичных числа.
