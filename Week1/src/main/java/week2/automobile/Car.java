@@ -1,5 +1,7 @@
 package week2.automobile;
 
+import java.util.Objects;
+
 public class Car {
 
     private final Engine engine;
@@ -100,5 +102,31 @@ public class Car {
 
     public int checkFuelInTank(){
         return petrolTank.getCurrentVolumeTank();
+    }
+
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "engine=" + engine +
+                ", petrolTank=" + petrolTank +
+                ", yearOfProduction=" + yearOfProduction +
+                ", brand='" + brand + '\'' +
+                ", carMileage=" + carMileage +
+                ", isCarStarting=" + isCarStarting +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return yearOfProduction == car.yearOfProduction && carMileage == car.carMileage && isCarStarting == car.isCarStarting && Objects.equals(engine, car.engine) && Objects.equals(petrolTank, car.petrolTank) && Objects.equals(brand, car.brand);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(engine, petrolTank, yearOfProduction, brand, carMileage, isCarStarting);
     }
 }

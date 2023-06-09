@@ -1,5 +1,7 @@
 package week2.automobile;
 
+import java.util.Objects;
+
 public class PetrolTank {
 
     private int totalVolumeTank;
@@ -29,4 +31,24 @@ public class PetrolTank {
         this.currentVolumeTank -= volume;
     }
 
+    @Override
+    public String toString() {
+        return "PetrolTank{" +
+                "totalVolumeTank=" + totalVolumeTank +
+                ", currentVolumeTank=" + currentVolumeTank +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PetrolTank that = (PetrolTank) o;
+        return totalVolumeTank == that.totalVolumeTank && currentVolumeTank == that.currentVolumeTank;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(totalVolumeTank, currentVolumeTank);
+    }
 }

@@ -1,5 +1,7 @@
 package week2.automobile;
 
+import java.util.Objects;
+
 public class Engine {
 
     private String typeEngine;
@@ -30,5 +32,24 @@ public class Engine {
         System.out.println("Engine stopped");
     }
 
+    @Override
+    public String toString() {
+        return "Engine{" +
+                "typeEngine='" + typeEngine + '\'' +
+                ", amountOfCylinders=" + amountOfCylinders +
+                '}';
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Engine engine = (Engine) o;
+        return amountOfCylinders == engine.amountOfCylinders && Objects.equals(typeEngine, engine.typeEngine);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(typeEngine, amountOfCylinders);
+    }
 }
