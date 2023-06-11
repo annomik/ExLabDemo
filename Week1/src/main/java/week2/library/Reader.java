@@ -16,6 +16,10 @@ public  class Reader {
     public Reader() {
     }
 
+    public Reader(String name) {
+        this.name = name;
+    }
+
     public Reader(String name, int libraryCardNumber,
                   String faculty, String dateOfBirth,
                   String phoneNumber, List<Book> bookList) {
@@ -86,22 +90,22 @@ public  class Reader {
     }
 
     public void takeBook(int amountOfBooks){
-        System.out.println(getName() + "took "+ amountOfBooks + " books" );
+        System.out.println(getName() + " want to take "+ amountOfBooks + " book(s)");
     }
 
-    public void takeBook(String nameOfBooks []){
-        System.out.println(getName() + "took the books:" + Arrays.toString(nameOfBooks ));
+    public void takeBook(String [] nameOfBooks){
+        System.out.println(getName() + " is taking the book(s): " + Arrays.toString(nameOfBooks));
     }
 
-    public void takeBook(List<Book> bookList){
-        System.out.println(getName() + "took the books:" + bookList );  //лямбда?
+    public void takeBook(Book... books) {
+        System.out.println(getName() + "took the books:" + books);
     }
 
-    public  void returnBook(){
+//    public void returnBook(int amountOfBooks){
+//            System.out.println();
+//    }
 
-    }
-
-    @Override
+        @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -125,4 +129,5 @@ public  class Reader {
                 ", bookList=" + bookList +
                 '}';
     }
+
 }
