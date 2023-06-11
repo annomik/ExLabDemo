@@ -1,5 +1,6 @@
 package week2.library;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -11,25 +12,9 @@ public  class Reader {
     private String dateOfBirth;
     private String phoneNumber;
 
-    private List<Book> bookList;
-
     public Reader() {
     }
 
-    public Reader(String name) {
-        this.name = name;
-    }
-
-    public Reader(String name, int libraryCardNumber,
-                  String faculty, String dateOfBirth,
-                  String phoneNumber, List<Book> bookList) {
-        this.name = name;
-        this.libraryCardNumber = libraryCardNumber;
-        this.faculty = faculty;
-        this.dateOfBirth = dateOfBirth;
-        this.phoneNumber = phoneNumber;
-        this.bookList = bookList;
-    }
 
     public Reader(String name, int libraryCardNumber,
                   String faculty, String dateOfBirth,
@@ -39,14 +24,6 @@ public  class Reader {
         this.faculty = faculty;
         this.dateOfBirth = dateOfBirth;
         this.phoneNumber = phoneNumber;
-    }
-
-    public List<Book> getBookList() {
-        return bookList;
-    }
-
-    public void setBookList(List<Book> bookList) {
-        this.bookList = bookList;
     }
 
     public String getName() {
@@ -97,25 +74,26 @@ public  class Reader {
         System.out.println(getName() + " is taking the book(s): " + Arrays.toString(nameOfBooks));
     }
 
-    public void takeBook(Book... books) {
-        System.out.println(getName() + "took the books:" + books);
+    public void takeBook(List<Book>  books) {
+        System.out.println(getName() + " took the books: " + books.toString());
     }
 
 //    public void returnBook(int amountOfBooks){
 //            System.out.println();
 //    }
 
-        @Override
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Reader reader = (Reader) o;
-        return libraryCardNumber == reader.libraryCardNumber && Objects.equals(name, reader.name) && Objects.equals(faculty, reader.faculty) && Objects.equals(dateOfBirth, reader.dateOfBirth) && Objects.equals(phoneNumber, reader.phoneNumber) && Objects.equals(bookList, reader.bookList);
+        return libraryCardNumber == reader.libraryCardNumber && Objects.equals(name, reader.name) && Objects.equals(faculty, reader.faculty) && Objects.equals(dateOfBirth, reader.dateOfBirth) && Objects.equals(phoneNumber, reader.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, libraryCardNumber, faculty, dateOfBirth, phoneNumber, bookList);
+        return Objects.hash(name, libraryCardNumber, faculty, dateOfBirth, phoneNumber);
     }
 
     @Override
@@ -126,8 +104,6 @@ public  class Reader {
                 ", faculty='" + faculty + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", bookList=" + bookList +
                 '}';
     }
-
 }
