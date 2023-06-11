@@ -1,6 +1,5 @@
 package week2.library;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -74,14 +73,21 @@ public  class Reader {
         System.out.println(getName() + " is taking the book(s): " + Arrays.toString(nameOfBooks));
     }
 
-    public void takeBook(List<Book>  books) {
+    public void takeBook(List<Book> books) {
         System.out.println(getName() + " took the books: " + books.toString());
     }
 
-//    public void returnBook(int amountOfBooks){
-//            System.out.println();
-//    }
+    public void returnBook(int amountOfBooks){
+        System.out.println(getName() + " want to return "+ amountOfBooks + " book(s)");
+    }
 
+    public void returnBook(String [] nameOfBooks){
+        System.out.println(getName() + " returns the book(s): " + Arrays.toString(nameOfBooks));
+    }
+
+    public void returnBook(List<Book> books) {
+        System.out.println(getName() + " returned the books: " + books.toString());
+    }
 
     @Override
     public boolean equals(Object o) {
