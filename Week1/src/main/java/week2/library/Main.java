@@ -1,12 +1,20 @@
 package week2.library;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         List <Reader> readerList = new ArrayList<>();
+        Map<Integer, Book> bookList = new HashMap<>();
+        bookList.put(1, new Book("It", "Stephen King"));
+        bookList.put(2, new Book("Carrie", "Stephen King"));
+        bookList.put(3,new Book("The Green Mile", "Stephen King"));
+        bookList.put(4, new Book("Fairy tales", "A.S.Pushkin"));
+        bookList.put(5, new Book("Harry Potter and the Philosopher's Stone", "Joanne Rowling"));
+        bookList.put(6, new Book("Harry Potter and the Chamber of Secrets", "Joanne Rowling"));
+        bookList.put(7, new Book("Harry Potter and the Goblet of Fire", "Joanne Rowling"));
+        bookList.put(8, new Book("Harry Potter and the Deathly Hallows", "Joanne Rowling"));
+
         int cardNumber = 0;
 
         for (;;) {
@@ -41,37 +49,55 @@ public class Main {
                 System.out.println(" Take books - enter '1'. \n Return books - enter '2'." +
                         "\n Finish work - enter any other symbol.");
                 String chosenNumber = scanner.nextLine();
-                if (chosenNumber.equals("1")) {                              //to take books
+                Map<Integer, Book> takenBooksForReader = new HashMap<>();
+                if (chosenNumber.equals("1")) {                             //to take books
+                    System.out.println("Select book(s):");
+                    for (Map.Entry<Integer, Book> entry : bookList.entrySet()) {
+                        System.out.println(entry.getKey().toString() +". " + entry.getValue().toString()     );
+                    }
+
                     System.out.println("How many books do you want to take?");
                     int amountOfBooksFromConsole = scanner.nextInt();
                     findedReader.takeBook(amountOfBooksFromConsole);
                     String [] nameOfBooksFromConsole = new String[amountOfBooksFromConsole];
-                    List <Book> booksToTake = new ArrayList<>();
+
                     for (int i = 0; i < amountOfBooksFromConsole; i++) {
-                        System.out.print("Enter the name of book(s): ");
-                        String booksFromConsole = scanner.next();
-                        nameOfBooksFromConsole[i] = booksFromConsole;
-                        booksToTake.add(new Book(booksFromConsole, "author"+i));
+                        System.out.print("Enter the numbers of chosen book(s): ");
+                        String indexBookFromConsole = scanner.next();
+                        int indexOfBook = Integer.parseInt(indexBookFromConsole);
+                        Book book = bookList.get(indexOfBook);
+                        nameOfBooksFromConsole[i] = book.getNameOfBook();
+                        takenBooksForReader.put(indexOfBook,bookList.get(indexOfBook));
+                        bookList.remove(indexOfBook);
                     }
                     findedReader.takeBook(nameOfBooksFromConsole);
-                    findedReader.takeBook(booksToTake);
+                    findedReader.takeBook(takenBooksForReader);
                     System.out.println(findedReader);
 
-                } else if (chosenNumber.equals("2")) {                   //return books
+                } else if (chosenNumber.equals("2")) {                          //return books
                     System.out.println("How many books do you want to return?");
                     int amountOfBooksFromConsole = scanner.nextInt();
                     findedReader.returnBook(amountOfBooksFromConsole);
-                    String [] nameOfBooksFromConsole = new String[amountOfBooksFromConsole];
-                    List <Book> booksToReturn = new ArrayList<>();
-                    for (int i = 0; i < amountOfBooksFromConsole; i++) {
-                        System.out.print("Enter the name of book(s): ");
-                        String booksFromConsole = scanner.next();
-                        nameOfBooksFromConsole[i] = booksFromConsole;
-                        booksToReturn.add(new Book(booksFromConsole, "author"+i));
+                    String [] namesOfBooksFromConsole = new String[amountOfBooksFromConsole];
+
+                    for (Map.Entry<Integer, Book> entry : findedReader.getTakenBooks().entrySet()) {
+                        System.out.println(entry.getKey() +". " + entry.getValue().toString() );
                     }
-                    findedReader.returnBook(nameOfBooksFromConsole);
-                    findedReader.returnBook(booksToReturn);
+                    for (int i = 0; i < amountOfBooksFromConsole; i++) {
+                        System.out.print("Enter the numbers of returned book(s): ");
+                        String bookFromConsole = scanner.next();
+                        int indexOfBook = Integer.parseInt(bookFromConsole);
+                        Book book = findedReader.getTakenBooks().get(indexOfBook);
+                        namesOfBooksFromConsole[i] = book.getNameOfBook();
+                        bookList.put(indexOfBook, findedReader.getTakenBooks().get(indexOfBook));
+                        findedReader.getTakenBooks().remove(indexOfBook);
+                    }
+                    findedReader.returnBook(namesOfBooksFromConsole);
                     System.out.println(findedReader);
+                    System.out.println("Books in Library:");
+                    for (Map.Entry<Integer, Book> entry : bookList.entrySet()) {
+                        System.out.println(entry.getKey().toString() +". " + bookList.get(entry.getKey()).toString());
+                    }
                 }
             }
             //readerList.forEach(s -> System.out.println(s));
