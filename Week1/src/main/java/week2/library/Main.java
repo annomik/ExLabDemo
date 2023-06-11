@@ -15,7 +15,7 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             String fromRegisterOrLogin = scanner.nextLine();
 
-            if (fromRegisterOrLogin.equals("1")) {               //registration
+            if (fromRegisterOrLogin.equals("1")) {                          //registration
                 cardNumber++;
                 System.out.print("Please, fill out the form. Enter your name: ");
                 String nameFromScanner = scanner.nextLine();
@@ -36,12 +36,12 @@ public class Main {
                     .findAny()
                     .orElse(null);
             if (findedReader == null) {
-                System.out.println("Sorry, NO user named " + enterLoginFromConsole);
+                System.out.println("Sorry, NO user named: " + enterLoginFromConsole);
             }else {
                 System.out.println(" Take books - enter '1'. \n Return books - enter '2'." +
                         "\n Finish work - enter any other symbol.");
                 String chosenNumber = scanner.nextLine();
-                if (chosenNumber.equals("1")) {
+                if (chosenNumber.equals("1")) {                              //to take books
                     System.out.println("How many books do you want to take?");
                     int amountOfBooksFromConsole = scanner.nextInt();
                     findedReader.takeBook(amountOfBooksFromConsole);
@@ -56,14 +56,26 @@ public class Main {
                     findedReader.takeBook(nameOfBooksFromConsole);
                     findedReader.takeBook(booksToTake);
                     System.out.println(findedReader);
+
+                } else if (chosenNumber.equals("2")) {                   //return books
+                    System.out.println("How many books do you want to return?");
+                    int amountOfBooksFromConsole = scanner.nextInt();
+                    findedReader.returnBook(amountOfBooksFromConsole);
+                    String [] nameOfBooksFromConsole = new String[amountOfBooksFromConsole];
+                    List <Book> booksToReturn = new ArrayList<>();
+                    for (int i = 0; i < amountOfBooksFromConsole; i++) {
+                        System.out.print("Enter the name of book(s): ");
+                        String booksFromConsole = scanner.next();
+                        nameOfBooksFromConsole[i] = booksFromConsole;
+                        booksToReturn.add(new Book(booksFromConsole, "author"+i));
+                    }
+                    findedReader.returnBook(nameOfBooksFromConsole);
+                    findedReader.returnBook(booksToReturn);
+                    System.out.println(findedReader);
                 }
-
             }
-           // readerList.forEach(s -> System.out.println(s));
+            //readerList.forEach(s -> System.out.println(s));
             System.out.println("== Thank you for visiting our Library! ==\n");
-
-            //readerList.forEach( s -> s.getName().equals(fromRegisterOrLogin) );
-            // scanner.close();
         }
 
     }
