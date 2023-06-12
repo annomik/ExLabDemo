@@ -71,10 +71,11 @@ public  class Reader {
 
     public void takeBook(Map<Integer, Book> books) {
         setTakenBooks(books);
-        System.out.println(getName() + " took the books: " );
-        for (Map.Entry<Integer, Book> entry : books.entrySet()) {
-            System.out.println(entry.getKey().toString() +". " + entry.getValue().toString()  );
-        }
+        System.out.println(getName() + " took the book(s): " );
+        books.forEach((k, v) ->  System.out.println(k + ". " + v) );
+//        for (Map.Entry<Integer, Book> entry : books.entrySet()) {
+//            System.out.println(entry.getKey().toString() +". " + entry.getValue().toString()  );
+//        }
     }
 
     public void returnBook(int amountOfBooks){
