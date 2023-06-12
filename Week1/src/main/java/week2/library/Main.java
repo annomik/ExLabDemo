@@ -94,11 +94,11 @@ public class Main {
                     }
                     findedReader.returnBook(namesOfBooksFromConsole);
                     System.out.println(findedReader);
-                    System.out.println("Books in Library:");
-                    for (Map.Entry<Integer, Book> entry : bookList.entrySet()) {
-                        System.out.println(entry.getKey().toString() +". " + bookList.get(entry.getKey()).toString());
                     }
                 }
+                System.out.println("Books in Library:");
+                for (Map.Entry<Integer, Book> entry : bookList.entrySet()) {
+                    System.out.println(entry.getKey().toString() +". " + bookList.get(entry.getKey()).toString());
             }
             //readerList.forEach(s -> System.out.println(s));
             System.out.println("== Thank you for visiting our Library! ==\n");
