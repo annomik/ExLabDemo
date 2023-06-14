@@ -18,7 +18,14 @@ public class CityController {
     @PostMapping
     public ResponseEntity<?> addNewCity(@RequestBody CityDTO cityDTO){
         cityService.saveCity(cityDTO);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
+//    @PostMapping
+//    public String addNewCity(@RequestParam(name = "name", required = false) String name,
+//                             @RequestParam(name = "info", required = false) String info){
+//        cityService.saveCity(new CityDTO(name, info));
+//        return "cities";
+//    }
 
 }

@@ -12,9 +12,11 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
     final BotConfig config;
+    private final CityService cityService;
 
-    public TelegramBot(BotConfig config) {
+    public TelegramBot(BotConfig config, CityService cityService) {
         this.config = config;
+        this.cityService = cityService;
     }
 
     @Override
@@ -33,18 +35,19 @@ public class TelegramBot extends TelegramLongPollingBot {
             String messageText = update.getMessage().getText();
             long chatId = update.getMessage().getChatId();
 
-            switch (messageText){
-                case "/start":
-                    startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
-                    break;
-                default:
-                    sendMessage(chatId, "Sorry, command was not recognized");
-            }
+            if (messageText.equals("/start")) {
+                startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
+            } else   if (messageText.equalsIgnoreCase(cityService.getNameOfCity(messageText))){
+                    sendMessage(chatId, cityService.getInfoAboutCity(messageText) );
+                    } else  {
+                        sendMessage(chatId, "Sorry, command was not recognized");
+                        log.info("Unexpected message");
+                    }
         }
     }
 
     private void startCommandReceived(long chatId, String name){
-        String answer = "Hi, " + name + ", nice to meet you!";
+        String answer = "Hi, " + name + ", nice to meet you!  Enter the city:";
         sendMessage(chatId, answer);
         log.info("Replied to user " + name);
     }

@@ -20,4 +20,14 @@ public class CityService {
         cityRepository.save(new City(UUID.randomUUID(),
                 cityDTO.getName(), cityDTO.getInfo()));
     }
+
+    public String getNameOfCity(String nameOfCity){
+        return cityRepository.findByName(nameOfCity).getName();
+    }
+
+    public String getInfoAboutCity(String nameOfCity){
+        return cityRepository.findByName(nameOfCity).getInfo();
+
+    }
+
 }

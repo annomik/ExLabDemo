@@ -1,6 +1,5 @@
 package com.exLab.SpringDemoFromAnnaBot.data.dto;
 
-
 public class CityDTO {
     private String name;
     private String info;

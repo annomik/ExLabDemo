@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Form</h1>
-<form th:action="@{/api/city}" th:object="${CityDTO}" method="post">
+<form action="#" th:action="@{/api/city}" method="post">
     <div>
         <p>Name of city: <input type="text" th:field="*{name}" /></p>
         <p>Information: <input type="text" th:field="*{info}" /></p>
