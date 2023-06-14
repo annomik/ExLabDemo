@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tourist guide | Add cities</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Form</h1>
+<form th:action="@{/api/city}" th:object="${CityDTO}" method="post">
+    <div>
+        <p>Name of city: <input type="text" th:field="*{name}" /></p>
+        <p>Information: <input type="text" th:field="*{info}" /></p>
+    </div>
+    <div>
+        <input type="submit" value="Enter"/>
+    </div>
+</form>
+</body>
+</html>
